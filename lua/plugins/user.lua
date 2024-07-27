@@ -202,6 +202,7 @@ return {
           ["<C-l>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.close(),
           ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<Tab>"] = cmp.mapping.select_next_item(),
           ["<C-p>"] = cmp.mapping.select_prev_item(),
           ["<CR>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
@@ -216,7 +217,7 @@ return {
         },
         formatting = {
           format = require("lspkind").cmp_format {
-            mode = "symbol_text",
+            mode = "symbol",
             with_text = true,
             maxwidth = 50,
             ellipsis = "…",

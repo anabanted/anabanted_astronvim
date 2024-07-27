@@ -61,6 +61,18 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      pyright = {
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+              typeCheckingMode = "strict",
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
@@ -104,6 +116,7 @@ return {
         gd = { function() vim.lsp.buf.definition() end, desc = "Go to definition" },
         gr = { function() vim.lsp.buf.references() end, desc = "Go to references" },
         ga = { function() vim.lsp.buf.code_action() end, desc = "Code action" },
+        gD = { function() vim.lsp.buf.declaration() end, desc = "Declaration of current symbol" },
 
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
         -- gD = {
